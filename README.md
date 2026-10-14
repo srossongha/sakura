@@ -1,25 +1,34 @@
 # Sakura 🌸
 
-A lightweight, interactive cherry blossom animation created with pure HTML, CSS, and JavaScript.
+A lightweight, interactive cherry blossom animation crafted with pure HTML, CSS, and modern JavaScript.
 
-## Features
+## ✨ Features
 
-- **Ambient Sakura Rain**: Graceful, continuous background petals drifting across the entire screen with organic wind sway and 3D fluttering.
-- **Pre-warmed Animation**: Petals are already gently falling across the screen the moment the page loads (no awkward delay).
-- **Interactive Center Blossom**: A permanent 5-petal sakura flower with green leaves that expands into full bloom when clicked.
-- **Auto-Reset**: Returns smoothly from bloom to resting state after 4 seconds (or upon a second click).
-- **Zero Dependencies**: Pure vanilla HTML5, CSS3, and modern JavaScript.
+- **Ambient Petal Shower**: Continuous cherry blossom petals drifting gracefully across the viewport with realistic wind sway and 3D fluttering.
+- **Pre-warmed Animation**: Petals are already in mid-fall when the page loads—no jarring delays.
+- **Interactive 360° Blossom**: A symmetrical 5-petal sakura flower with green leaf accents centered on screen.
+- **Click to Bloom**: Click the flower to trigger an expansive spring bloom animation with an enhanced radiant glow.
+- **Auto-Reset**: Smoothly returns to resting state after 4 seconds (or upon a second click).
+- **Zero Dependencies**: Pure vanilla HTML5, CSS3, and JavaScript—no external libraries needed.
 
-## File Structure
+## 📁 File Structure
 
-- [`sakura.html`](sakura.html) — Page structure with ambient petal container and interactive flower.
-- [`style.css`](style.css) — Gradients, petal geometry, wind sway physics, and blooming keyframes.
-- [`script.js`](script.js) — Ambient rain generation and click-to-bloom interactive state.
+- [`index.html`](index.html) — Core markup, viewport setup, and container elements.
+- [`style.css`](style.css) — Radial gradients, 360° petal geometry, keyframe physics, and transitions.
+- [`script.js`](script.js) — Procedural ambient petal rain generation and interactive click handler.
 
-## Getting Started
+## 🚀 Getting Started
 
-Simply open [`sakura.html`](sakura.html) in any modern web browser or run a local server:
+Simply open [`index.html`](index.html) in any modern web browser, or launch a local static server:
 
 ```bash
+# Using Python's built-in HTTP server
 python3 -m http.server 8000
 ```
+
+Then visit `http://localhost:8000` in your browser.
+
+## 🎮 Interaction
+
+- **Click the flower** to watch it blossom into full bloom.
+- **Click again** (or wait 4 seconds) to return to the gentle resting state.
