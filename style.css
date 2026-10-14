@@ -1,0 +1,172 @@
+body {
+  margin: 0;
+  background: linear-gradient(to bottom, #ffe6f0 0%, #fff0f5 50%, #fff7fa 100%);
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ========================================================
+   Ambient Falling Petals (Smooth, Natural Drift)
+   ======================================================== */
+#petal-rain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.falling-petal {
+  position: absolute;
+  top: -40px;
+  background: radial-gradient(circle at 40% 30%, #ffffff 0%, #ffc0cb 45%, #ff8099 100%);
+  border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 4px rgba(255, 107, 139, 0.25));
+  will-change: top, transform;
+}
+
+@keyframes fall {
+  0% {
+    top: -50px;
+  }
+  100% {
+    top: 105vh;
+  }
+}
+
+@keyframes sway {
+  0% {
+    transform: translateX(-30px) rotate(-20deg) rotateY(0deg);
+  }
+  100% {
+    transform: translateX(45px) rotate(40deg) rotateY(180deg);
+  }
+}
+
+/* ========================================================
+   Main Interactive Sakura Blossom
+   ======================================================== */
+#container {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  cursor: pointer;
+  user-select: none;
+  z-index: 10;
+  animation: gentleBreathe 4s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+#container:hover {
+  transform: scale(1.04);
+}
+
+@keyframes gentleBreathe {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-6px) scale(1.02);
+  }
+}
+
+/* Green leaf accents */
+.leaf {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 38px;
+  height: 58px;
+  margin-left: -19px;
+  margin-top: -58px;
+  background: linear-gradient(135deg, #a8e063 0%, #43a047 100%);
+  border-radius: 80% 0 80% 0;
+  transform-origin: 50% 100%;
+  filter: drop-shadow(0 2px 4px rgba(46, 125, 50, 0.3));
+  opacity: 0.85;
+  z-index: 2;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease;
+}
+
+.leaf-1 {
+  transform: rotate(108deg) translateY(-20px);
+}
+
+.leaf-2 {
+  transform: rotate(252deg) translateY(-20px) scaleX(-1);
+}
+
+/* Sakura flower petals */
+.petal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 58px;
+  height: 78px;
+  margin-left: -29px;
+  margin-top: -78px;
+  background: radial-gradient(circle at 50% 25%, #ffffff 0%, #ffc0cb 40%, #ff8da1 85%, #ff6b8b 100%);
+  border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+  transform-origin: 50% 100%;
+  filter: drop-shadow(0 2px 5px rgba(255, 107, 139, 0.35));
+  z-index: 5;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* 5 petals forming the resting sakura flower */
+.petal-1 { transform: rotate(0deg) translateY(-18px); }
+.petal-2 { transform: rotate(72deg) translateY(-18px); }
+.petal-3 { transform: rotate(144deg) translateY(-18px); }
+.petal-4 { transform: rotate(216deg) translateY(-18px); }
+.petal-5 { transform: rotate(288deg) translateY(-18px); }
+
+/* Flower center core */
+#flower-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 52px;
+  height: 52px;
+  background: radial-gradient(circle at 40% 35%, #fff3b0 0%, #ffe082 25%, #ff5a87 70%, #d81b60 100%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 16px 4px rgba(255, 90, 135, 0.6);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  z-index: 10;
+}
+
+#container:hover #flower-center {
+  box-shadow: 0 0 22px 7px rgba(255, 90, 135, 0.85);
+}
+
+/* ========================================================
+   Bloom Animation (Expanding flower on click)
+   ======================================================== */
+#container.bloom .petal-1 { transform: rotate(0deg) translateY(-26px) scale(1.08); }
+#container.bloom .petal-2 { transform: rotate(72deg) translateY(-26px) scale(1.08); }
+#container.bloom .petal-3 { transform: rotate(144deg) translateY(-26px) scale(1.08); }
+#container.bloom .petal-4 { transform: rotate(216deg) translateY(-26px) scale(1.08); }
+#container.bloom .petal-5 { transform: rotate(288deg) translateY(-26px) scale(1.08); }
+
+#container.bloom .leaf-1 {
+  opacity: 1;
+  transform: rotate(108deg) translateY(-28px) scale(1.12);
+}
+
+#container.bloom .leaf-2 {
+  opacity: 1;
+  transform: rotate(252deg) translateY(-28px) scaleX(-1) scale(1.12);
+}
+
+#container.bloom #flower-center {
+  transform: translate(-50%, -50%) scale(1.18);
+  box-shadow: 0 0 32px 10px rgba(255, 90, 135, 0.95);
+}
